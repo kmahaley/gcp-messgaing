@@ -1,0 +1,17 @@
+server:
+  port: 8090
+
+tdm:
+  pubsub:
+    topic: tdm-canonical-topic-gcp-demo
+    subscription: tdm-canonical-topic-gcp-demo-subscription
+
+spring:
+  profiles:
+    active: log-dev
+  cloud:
+    gcp:
+      credentials:
+        location: file:/Users/km185223/Downloads/credentials.json
+        scopes: https://www.googleapis.com/auth/pubsub
+      project-id: odsp-hyun-test
