@@ -6,5 +6,4 @@ public interface MessagingService {
 
     void publish(PrivateMessage message);
 
-    PrivateMessage listen();
 }

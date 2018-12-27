@@ -39,11 +39,6 @@ public class DefaultMessagingService implements MessagingService {
 
     }
 
-    @Override
-    public PrivateMessage listen() {
-        return null;
-    }
-
     @ServiceActivator(inputChannel = "pubsubInputChannel")
     public void messageReceiver(String payload) {
         log.info("Message arrived! Payload: " + payload);
