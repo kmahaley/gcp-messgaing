@@ -15,7 +15,10 @@ Demo of google cloud platform pub sub
 - inbound channel is linked with service activator where messages are processed
 
 #### Publish Example:
-Spring channel -> outbound adaptor -> GCP topic
+There are two ways to publish
+- Use Spring-Cloud-GCP `PubSubTemplate` to publish message
+
+- Spring channel -> outbound adaptor -> GCP topic
 
 #### Subscribe Example:
 GCP subscription -> inbound adaptor -> Spring channel
