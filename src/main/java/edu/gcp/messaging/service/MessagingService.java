@@ -11,4 +11,12 @@ public interface MessagingService {
      */
     void publish(PrivateMessage message);
 
+
+    /**
+     * Publish message on spring outbound channel
+     *
+     * @param message message to be published
+     */
+    void publishOnSpringOutBoundChannel(PrivateMessage message);
+
 }

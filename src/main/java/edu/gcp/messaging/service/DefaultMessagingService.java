@@ -23,6 +23,8 @@ public class DefaultMessagingService implements MessagingService {
 
     private ObjectMapper objectMapper;
 
+    private PubsubOutboundGateway messagingGateway;
+
     @Override
     public void publish(PrivateMessage message) {
         try {
@@ -37,6 +39,19 @@ public class DefaultMessagingService implements MessagingService {
         }
 
 
+    }
+
+    @Override
+    public void publishOnSpringOutBoundChannel(PrivateMessage message) {
+        try {
+            final String payload = objectMapper.writeValueAsString(message);
+            log.info("Sending message on spring outbound channel: " + payload);
+
+            messagingGateway.sendToPubsub(payload);
+
+        } catch (JsonProcessingException ex) {
+            log.info("Error in writing data");
+        }
     }
 
     /**

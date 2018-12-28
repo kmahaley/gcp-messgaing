@@ -22,4 +22,12 @@ public class MessagingController {
         messagingService.publish(message);
 
     }
+
+
+    @PostMapping("/publish/out-bound-channel")
+    public void publishOnSpringOutBoundChannel(@RequestBody PrivateMessage message){
+
+        messagingService.publishOnSpringOutBoundChannel(message);
+
+    }
 }
