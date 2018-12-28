@@ -39,6 +39,12 @@ public class DefaultMessagingService implements MessagingService {
 
     }
 
+    /**
+     * Received message from inbound channel adaptor
+     * Method name should match the channel "pubsubInputChannel" check config
+     *
+     * @param payload message received from subscription
+     */
     @ServiceActivator(inputChannel = "pubsubInputChannel")
     public void messageReceiver(String payload) {
         log.info("Message arrived! Payload: " + payload);

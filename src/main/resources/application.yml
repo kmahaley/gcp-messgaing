@@ -12,6 +12,6 @@ spring:
   cloud:
     gcp:
       credentials:
-        location: file:/Users/km185223/Downloads/credentials.json
+        location: file:/Users/km185223/Downloads/tdm-persist-service-account.json
         scopes: https://www.googleapis.com/auth/pubsub
       project-id: odsp-hyun-test
