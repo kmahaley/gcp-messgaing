@@ -61,6 +61,12 @@
             <artifactId>spring-integration-core</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.google.cloud</groupId>
+            <artifactId>google-cloud-pubsub</artifactId>
+            <version>1.55.0</version>
+        </dependency>
+
 
     </dependencies>
 

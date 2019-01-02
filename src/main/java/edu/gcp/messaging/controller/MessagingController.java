@@ -2,6 +2,7 @@ package edu.gcp.messaging.controller;
 
 
 import edu.gcp.messaging.data.PrivateMessage;
+import edu.gcp.messaging.service.DefaultGoogleMessagingService;
 import edu.gcp.messaging.service.MessagingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,9 @@ public class MessagingController {
 
     @Autowired
     MessagingService messagingService;
+
+    @Autowired
+    DefaultGoogleMessagingService googleMessagingService;
 
     @PostMapping("/publish")
     public void publishMessage(@RequestBody PrivateMessage message){
@@ -30,4 +34,12 @@ public class MessagingController {
         messagingService.publishOnSpringOutBoundChannel(message);
 
     }
+
+    @PostMapping("/publish/gcp")
+    public void publishMessageUsing(@RequestBody PrivateMessage message){
+
+        googleMessagingService.publish(message);
+
+    }
+
 }

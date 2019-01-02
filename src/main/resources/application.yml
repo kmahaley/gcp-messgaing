@@ -5,7 +5,9 @@ tdm:
   pubsub:
     topic: tdm-canonical-topic-gcp-demo
     subscription: tdm-canonical-topic-gcp-demo-subscription
+    gcp-project-id: odsp-hyun-test
 
+# If using spring boot gcp libraries
 spring:
   profiles:
     active: log-dev
@@ -15,3 +17,8 @@ spring:
         location: file:/Users/km185223/Downloads/tdm-persist-service-account.json
         scopes: https://www.googleapis.com/auth/pubsub
       project-id: odsp-hyun-test
+
+
+google:
+  appliction:
+    credential: file:/Users/km185223/Downloads/tdm-persist-service-account.json

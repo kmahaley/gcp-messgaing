@@ -11,4 +11,5 @@ public class GoogleCloudProperties {
 
     private String subscription;
 
+    private String gcpProjectId;
 }
