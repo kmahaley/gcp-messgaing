@@ -58,7 +58,6 @@ public class Config {
         PubSubInboundChannelAdapter adapter =
                 new PubSubInboundChannelAdapter(pubSubTemplate, googleCloudProperties.getSubscription());
         adapter.setOutputChannel(inputChannel);
-        adapter.setAckMode(AckMode.MANUAL);
 
         return adapter;
     }
@@ -85,5 +84,33 @@ public class Config {
     @ServiceActivator(inputChannel = "pubsubOutputChannel")
     public MessageHandler messageSender(PubSubOperations pubsubTemplate, GoogleCloudProperties googleCloudProperties) {
         return new PubSubMessageHandler(pubsubTemplate, googleCloudProperties.getTopic());
+    }
+
+    /**
+     * Adaptor listens to the subscription and passed message to spring inbound channel
+     *
+     * @param inputChannel input channel used from above bean
+     */
+    @Bean
+    public PubSubInboundChannelAdapter messageRawChannelAdapter(
+            @Qualifier("pubsubRawInputChannel") MessageChannel inputChannel,
+            PubSubOperations pubSubTemplate,
+            GoogleCloudProperties googleCloudProperties) {
+
+        PubSubInboundChannelAdapter adapter =
+                new PubSubInboundChannelAdapter(pubSubTemplate, googleCloudProperties.getRawSubscription());
+        adapter.setOutputChannel(inputChannel);
+
+        return adapter;
+    }
+
+    /**
+     * Spring outbound channel for sending messages to GCP topic
+     *
+     * @return Message channel
+     */
+    @Bean
+    public MessageChannel pubsubRawInputChannel() {
+        return new DirectChannel();
     }
 }

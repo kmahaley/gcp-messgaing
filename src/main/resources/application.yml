@@ -5,6 +5,7 @@ tdm:
   pubsub:
     topic: tdm-canonical-topic-gcp-demo
     subscription: tdm-canonical-topic-gcp-demo-subscription
+    raw-subscription: tdm-raw-topic-gcp-demo-subscription
     gcp-project-id: odsp-hyun-test
 
 # If using spring boot gcp libraries

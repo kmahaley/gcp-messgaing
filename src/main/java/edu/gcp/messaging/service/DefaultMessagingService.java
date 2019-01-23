@@ -72,4 +72,11 @@ public class DefaultMessagingService implements MessagingService {
         }
     }
 
+
+    @ServiceActivator(inputChannel = "pubsubRawInputChannel")
+    public void rawMessageReceiver(String payload) {
+        log.info("Raw Message arrived! Payload: " + payload);
+
+    }
+
 }
