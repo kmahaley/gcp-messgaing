@@ -15,7 +15,7 @@ spring:
   cloud:
     gcp:
       credentials:
-        location: file:/Users/km185223/Downloads/tdm-persist-service-account.json
+        location: file:/Users/km185223/Documents/developer-notes/gcp-credentials/tdm-persist-service-account.json
         scopes: https://www.googleapis.com/auth/pubsub
       project-id: odsp-hyun-test
 #If you want to enable batch settings uncomment following properties
